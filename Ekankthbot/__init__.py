@@ -43,7 +43,9 @@ if sys.version_info[0] < 3 or sys.version_info[1] < 7:
         "[TELEGRAM] You MUST have a python version of at least 3.7! Multiple features depend on this. Bot quitting."
     )
     quit(1)
-
+parser = ConfigParser()
+parser.read("config.ini")
+zconfig = parser["ekankthconfig"]
 
 class AnieINIT:
     def __init__(self, parser: ConfigParser):
