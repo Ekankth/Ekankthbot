@@ -37,7 +37,7 @@ SUPPORT = Config.SUPPORT
 # NOTE: Module order is not guaranteed, specify that in the config file!
 from Ekankthbot.modules import ALL_MODULES
 from Ekankthbot.modules.helper_funcs.chat_status import is_user_admin
-from Ekankthbot.modules.helper_funcs.decorators import zaid, zaidcallback, zaidmsg
+from Ekankthbot.modules.helper_funcs.decorators import Ekankth, Ekankthcallback, Ekankthmsg
 from Ekankthbot.modules.helper_funcs.misc import paginate_modules
 from Ekankthbot.modules.language import gs
 
@@ -109,7 +109,7 @@ def send_help(chat_id, text, keyboard=None):
     )
 
 
-@zaid(command='text')
+@Ekankth(command='text')
 def test(update: Update, _: CallbackContext):
     """#TODO
 
@@ -123,8 +123,8 @@ def test(update: Update, _: CallbackContext):
     print(update.effective_message)
 
 
-@zaidcallback(pattern=r'start_back')
-@zaid(command='start', pass_args=True)
+@Ekankthcallback(pattern=r'start_back')
+@Ekankth(command='start', pass_args=True)
 def start(update: Update, context: CallbackContext):  # sourcery no-metrics
     """#TODO
 
@@ -164,7 +164,7 @@ def start(update: Update, context: CallbackContext):  # sourcery no-metrics
                             ),
                             InlineKeyboardButton(
                                 text=gs(chat.id, "source_btn"),
-                                url="https://github.com/ITZ-ZAID/Telegram",
+                                url="https://github.com/ITZ-Ekankth/Telegram",
                             ),
                         ],
                         [
@@ -260,7 +260,7 @@ def start(update: Update, context: CallbackContext):  # sourcery no-metrics
                             ),
                             InlineKeyboardButton(
                                 text=gs(chat.id, "source_btn"),
-                                url="https://github.com/ITZ-ZAID/Telegram",
+                                url="https://github.com/ITZ-Ekankth/Telegram",
                             ),
                         ],
                         [
@@ -318,7 +318,7 @@ def error_callback(_, context: CallbackContext):
         # handle all other telegram related errors
 
 
-@zaidcallback(pattern=r'help_')
+@Ekankthcallback(pattern=r'help_')
 def help_button(update: Update, context: CallbackContext):
     """#TODO
 
@@ -398,7 +398,7 @@ def help_button(update: Update, context: CallbackContext):
         pass
 
 
-@zaid(command='help')
+@Ekankth(command='help')
 def get_help(update: Update, context: CallbackContext):
     '''#TODO
 
@@ -530,7 +530,7 @@ def send_settings(chat_id: int, user_id: int, user=False):
         )
 
 
-@zaidcallback(pattern=r"stngs_")
+@Ekankthcallback(pattern=r"stngs_")
 def settings_button(update: Update, context: CallbackContext):
     '''#TODO
 
@@ -621,7 +621,7 @@ def settings_button(update: Update, context: CallbackContext):
             log.exception('Exception in settings buttons. %s', str(query.data))
 
 
-@zaid(command='settings')
+@Ekankth(command='settings')
 def get_settings(update: Update, context: CallbackContext):
     '''#TODO
 
@@ -659,7 +659,7 @@ def get_settings(update: Update, context: CallbackContext):
         text = "Click here to check your settings."
 
 
-@zaid(command='donate')
+@Ekankth(command='donate')
 def donate(update: Update, _: CallbackContext):
     """#TODO
 
@@ -671,7 +671,7 @@ def donate(update: Update, _: CallbackContext):
     update.effective_message.reply_text("can Donate Via \n Razorpay 👉 https://pages.razorpay.com/GODFATHERDONATIONS \n PayPal 👉 https://www.paypal.com/paypalme/mrakki58 for more Contact in @Godfatherakki!  >_<")
 
 
-@zaidmsg(Filters.status_update.migrate)
+@Ekankthmsg(Filters.status_update.migrate)
 def migrate_chats(update: Update, context: CallbackContext):
     """#TODO
     Params:
