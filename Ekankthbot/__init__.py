@@ -89,20 +89,6 @@ class AnieINIT:
         self.BOT_API_FILE_URL: str = self.parser.get('BOT_API_FILE_URL', "https://api.telegram.org/file/bot")
 
 
-    def init_sw():
-        if Config.spamwatch_api is None:
-            log.warning("SpamWatch API key is missing! Check your config.ini")
-            return None
-        else:
-            try:
-                sw = spamwatch.Client(spamwatch_api)
-                return sw
-            except:
-                sw = None
-                log.warning("Can't connect to SpamWatch!")
-                return sw
-
-
 ZInit = Config
 ZZInit = AnieINIT
 EKANKTH_USER = 1669178360
@@ -148,7 +134,7 @@ STRING_SESSION = ZInit.STRING_SESSION
 WORKERS = 8
 ASSISTANT_ID = ZInit.ASSISTANT_ID
 
-from Telegram.modules.sql import SESSION
+from Ekankth.modules.sql import SESSION
 
 updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
 telethn = TelegramClient(MemorySession(), APP_ID, API_HASH)
@@ -170,7 +156,7 @@ dispatcher = updater.dispatcher
 
 
 
-from Telegram.modules.helper_funcs.handlers import CustomCommandHandler
+from Ekankth.modules.helper_funcs.handlers import CustomCommandHandler
 
 if CUSTOM_CMD and len(CUSTOM_CMD) >= 1:
     tg.CommandHandler = CustomCommandHandler
