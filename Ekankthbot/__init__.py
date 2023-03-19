@@ -35,7 +35,7 @@ log = logging.getLogger('[Telethon]')
 logging.getLogger('ptbcontrib.postgres_persistence.postgrespersistence').setLevel(logging.WARNING)
 log.info("[TELEGRAM] Bot is starting. | An Telethon Project. | Licensed under GPLv3.")
 log.info("[TELEGRAM] Not affiliated to Azur Lane or Yostar in any way whatsoever.")
-log.info("[TELEGRAM] Project maintained by: github.com/ITZ-ZAID (t.me/Timesisnotwaiting)")
+log.info("[TELEGRAM] Project maintained by: github.com/ITZ-Ekankth (t.me/Timesisnotwaiting)")
 
 # if version < 3.6, stop bot.
 if sys.version_info[0] < 3 or sys.version_info[1] < 7:
@@ -46,7 +46,7 @@ if sys.version_info[0] < 3 or sys.version_info[1] < 7:
 
 parser = ConfigParser()
 parser.read("config.ini")
-zconfig = parser["zaidconfig"]
+zconfig = parser["Ekankthconfig"]
 
 class AnieINIT:
     def __init__(self, parser: ConfigParser):
@@ -106,7 +106,7 @@ class AnieINIT:
 
 ZInit = Config
 ZZInit = AnieINIT
-ZAID_USER = 1669178360
+Ekankth_USER = 1669178360
 SYS_ADMIN = ZInit.SYS_ADMIN
 OWNER_ID = ZInit.OWNER_ID
 OWNER_USERNAME = ZInit.OWNER_USERNAME
@@ -128,7 +128,7 @@ MESSAGE_DUMP = ZInit.MESSAGE_DUMP
 GBAN_LOGS = ZInit.GBAN_LOGS
 NO_LOAD = ZInit.NO_LOAD
 SUDO_USERS = [Config.SUDO_USERS] + get_user_list("sudos")
-DEV_USERS = [Config.ZAID_USER] + get_user_list("devs")
+DEV_USERS = [Config.Ekankth_USER] + get_user_list("devs")
 SUPPORT_USERS = get_user_list("supports")
 SARDEGNA_USERS = get_user_list("sardegnas")
 WHITELIST_USERS = get_user_list("whitelists")
