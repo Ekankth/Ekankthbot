@@ -22,7 +22,7 @@ flag = """💖"""
 
 def get_user_list(key):
     # Import here to evade a circular import
-    from Ekankthbot.modules.sql import nation_sql
+    from Telegram.modules.sql import nation_sql
     royals = nation_sql.get_royals(key)
     return [a.user_id for a in royals]
 
@@ -35,7 +35,7 @@ log = logging.getLogger('[Telethon]')
 logging.getLogger('ptbcontrib.postgres_persistence.postgrespersistence').setLevel(logging.WARNING)
 log.info("[TELEGRAM] Bot is starting. | An Telethon Project. | Licensed under GPLv3.")
 log.info("[TELEGRAM] Not affiliated to Azur Lane or Yostar in any way whatsoever.")
-log.info("[TELEGRAM] Project maintained by: github.com/ITZ-Ekankth (t.me/Timesisnotwaiting)")
+log.info("[TELEGRAM] Project maintained by: github.com/Ekankth (t.me/ekankth)")
 
 # if version < 3.6, stop bot.
 if sys.version_info[0] < 3 or sys.version_info[1] < 7:
@@ -46,7 +46,7 @@ if sys.version_info[0] < 3 or sys.version_info[1] < 7:
 
 parser = ConfigParser()
 parser.read("config.ini")
-zconfig = parser["Ekankthconfig"]
+zconfig = parser["ekankthconfig"]
 
 class AnieINIT:
     def __init__(self, parser: ConfigParser):
@@ -106,7 +106,7 @@ class AnieINIT:
 
 ZInit = Config
 ZZInit = AnieINIT
-Ekankth_USER = 1669178360
+ZAID_USER = 1669178360
 SYS_ADMIN = ZInit.SYS_ADMIN
 OWNER_ID = ZInit.OWNER_ID
 OWNER_USERNAME = ZInit.OWNER_USERNAME
@@ -128,7 +128,7 @@ MESSAGE_DUMP = ZInit.MESSAGE_DUMP
 GBAN_LOGS = ZInit.GBAN_LOGS
 NO_LOAD = ZInit.NO_LOAD
 SUDO_USERS = [Config.SUDO_USERS] + get_user_list("sudos")
-DEV_USERS = [Config.Ekankth_USER] + get_user_list("devs")
+DEV_USERS = [Config.ZAID_USER] + get_user_list("devs")
 SUPPORT_USERS = get_user_list("supports")
 SARDEGNA_USERS = get_user_list("sardegnas")
 WHITELIST_USERS = get_user_list("whitelists")
@@ -149,7 +149,7 @@ STRING_SESSION = ZInit.STRING_SESSION
 WORKERS = 8
 ASSISTANT_ID = ZInit.ASSISTANT_ID
 
-from Ekankthbot.modules.sql import SESSION
+from Telegram.modules.sql import SESSION
 
 updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
 telethn = TelegramClient(MemorySession(), APP_ID, API_HASH)
@@ -171,7 +171,7 @@ dispatcher = updater.dispatcher
 
 
 
-from Ekankthbot.modules.helper_funcs.handlers import CustomCommandHandler
+from Telegram.modules.helper_funcs.handlers import CustomCommandHandler
 
 if CUSTOM_CMD and len(CUSTOM_CMD) >= 1:
     tg.CommandHandler = CustomCommandHandler
