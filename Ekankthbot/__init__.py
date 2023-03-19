@@ -45,8 +45,8 @@ if sys.version_info[0] < 3 or sys.version_info[1] < 7:
     quit(1)
 
 parser = ConfigParser()
+if parser = ["ekankthconfig"]
 parser.read("config.ini")
-zconfig = parser["ekankthconfig"]
 
 class AnieINIT:
     def __init__(self, parser: ConfigParser):
