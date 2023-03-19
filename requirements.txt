@@ -2,6 +2,7 @@ aiofile
 aiofiles
 aiohttp>=2.2.5
 alphabet_detector
+python-telegram-bot
 beautifulsoup4
 bleach
 cachetools
