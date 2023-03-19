@@ -44,9 +44,7 @@ if sys.version_info[0] < 3 or sys.version_info[1] < 7:
     )
     quit(1)
 
-parser = ConfigParser()
-parser.read("config.ini")
-zconfig = parser["zaidconfig"]
+
 class AnieINIT:
     def __init__(self, parser: ConfigParser):
         self.parser = parser
@@ -105,7 +103,7 @@ class AnieINIT:
 
 ZInit = Config
 ZZInit = AnieINIT
-ZAID_USER = 1669178360
+EKANKTH_USER = 1669178360
 SYS_ADMIN = ZInit.SYS_ADMIN
 OWNER_ID = ZInit.OWNER_ID
 OWNER_USERNAME = ZInit.OWNER_USERNAME
